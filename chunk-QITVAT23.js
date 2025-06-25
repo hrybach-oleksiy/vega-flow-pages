@@ -1,0 +1,1 @@
+import{Ka as o,db as n,eb as a,xb as i}from"./chunk-6MW2W2NU.js";var m=class t{static \u0275fac=function(e){return new(e||t)};static \u0275cmp=o({type:t,selectors:[["app-hotel-confirmation-page"]],decls:2,vars:0,template:function(e,c){e&1&&(n(0,"p"),i(1,"Hotel Confirmation"),a())},encapsulation:2,changeDetection:0})};export{m as HotelConfirmationPageComponent};

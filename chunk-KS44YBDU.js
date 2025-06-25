@@ -1,0 +1,1 @@
+import{Ka as t,db as a,eb as o,xb as i}from"./chunk-6MW2W2NU.js";var r=class n{static \u0275fac=function(e){return new(e||n)};static \u0275cmp=t({type:n,selectors:[["app-car-rental-confirmation-page"]],decls:2,vars:0,template:function(e,m){e&1&&(a(0,"p"),i(1,"Car Rental Confirmation"),o())},encapsulation:2,changeDetection:0})};export{r as CarRentalConfirmationPageComponent};

@@ -1,0 +1,1 @@
+import{Ka as a,db as n,eb as o,xb as r}from"./chunk-6MW2W2NU.js";var f=class t{static \u0275fac=function(e){return new(e||t)};static \u0275cmp=a({type:t,selectors:[["app-car-rental-offer-page"]],decls:2,vars:0,template:function(e,c){e&1&&(n(0,"p"),r(1,"Car Rental Offer"),o())},encapsulation:2,changeDetection:0})};export{f as CarRentalOfferPageComponent};
