@@ -1,1 +1,0 @@
-import{Ka as t,db as o,eb as a,xb as r}from"./chunk-6MW2W2NU.js";var i=class n{static \u0275fac=function(e){return new(e||n)};static \u0275cmp=t({type:n,selectors:[["app-transfer-confirmation-page"]],decls:2,vars:0,template:function(e,s){e&1&&(o(0,"p"),r(1,"Transfer Confirmation"),a())},encapsulation:2,changeDetection:0})};export{i as TransferConfirmationPageComponent};
