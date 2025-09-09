@@ -1,0 +1,1 @@
+import{Eb as f,Oa as n,ib as r,jb as a}from"./chunk-NGP2J4BU.js";import"./chunk-ODN5LVDJ.js";var o=class t{static \u0275fac=function(e){return new(e||t)};static \u0275cmp=n({type:t,selectors:[["app-transfer-offer-page"]],decls:2,vars:0,template:function(e,p){e&1&&(r(0,"p"),f(1,"Transfer Offer"),a())},encapsulation:2,changeDetection:0})};export{o as TransferOfferPageComponent};
