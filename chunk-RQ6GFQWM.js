@@ -1,0 +1,15 @@
+import{b as l}from"./chunk-ZMM23O6R.js";import{R as o,X as g}from"./chunk-JT2GHYKL.js";import{i as s}from"./chunk-ODN5LVDJ.js";var c=class r{supabase=g(l);policiesMap=new Map;constructor(){this.load()}getPolicy(a,e){return this.policiesMap.get(`${a}_${e}`)}formatBaggageText(a){let e=this.resolveCabinClass(a),t=[...new Set(a.map(i=>i.airlineCode).filter(Boolean))];if(t.length===0)return this.fallbackText();let n=t.map(i=>({code:i,policy:this.getPolicy(i,e)}));return this.allPoliciesEqual(n.map(i=>i.policy))?`Baggage allowance:
+${this.formatPolicyText(n[0].policy)}`:`Baggage allowance:
+`+n.map(i=>`[${i.code}]
+${this.formatPolicyText(i.policy)}`).join(`
+
+`)}formatBaggageHtml(a){let e=this.resolveCabinClass(a),t=[...new Set(a.map(i=>i.airlineCode).filter(Boolean))];if(t.length===0)return this.fallbackHtml();let n=t.map(i=>({code:i,policy:this.getPolicy(i,e)}));return this.allPoliciesEqual(n.map(i=>i.policy))?`<br><br><strong>Baggage allowance:</strong>${this.formatPolicyHtml(n[0].policy)}`:"<br><br><strong>Baggage allowance:</strong>"+n.map(i=>`<br><strong>[${i.code}]</strong>${this.formatPolicyHtml(i.policy)}`).join("<br>")}load(){return s(this,null,function*(){let{data:a}=yield this.supabase.client.from("airline_baggage_policies").select(`cabin_class,
+         hand_luggage_qty, hand_luggage_weight_kg, hand_luggage_dimensions_cm,
+         carry_on_qty, carry_on_weight_kg, carry_on_dimensions_cm,
+         checked_qty, checked_weight_kg, checked_dimensions_cm,
+         airlines!inner(code)`);if(a)for(let e of a){let n=`${Array.isArray(e.airlines)?e.airlines[0]?.code:e.airlines.code}_${e.cabin_class}`;this.policiesMap.set(n,e)}})}resolveCabinClass(a){return a.some(e=>e.isBusiness)?"business":a.some(e=>e.isPremiumEconomy)?"premium_economy":"economy"}formatPolicyText(a){if(!a)return this.fallbackLines().join(`
+`);let e=[];return a.hand_luggage_qty>0&&e.push(`Personal item: ${this.formatBagLine(a.hand_luggage_qty,null,a.hand_luggage_dimensions_cm)}`),e.push(`Carry-on bag: ${this.formatBagLine(a.carry_on_qty,a.carry_on_weight_kg,a.carry_on_dimensions_cm)}`),a.checked_qty>0?e.push(`Checked baggage: ${this.formatBagLine(a.checked_qty,a.checked_weight_kg,null)}`):e.push("Checked baggage: not included"),e.join(`
+`)}formatPolicyHtml(a){return this.formatPolicyText(a).split(`
+`).map(e=>`<br>${e}`).join("")}formatBagLine(a,e,t){let n=[`${a} x`];return e!==null&&n.push(`${e} kg`),t&&n.push(`${t} cm`),n.join(" ")}allPoliciesEqual(a){if(a.length<=1)return!0;let[e,...t]=a;return e?t.every(n=>n&&n.carry_on_qty===e.carry_on_qty&&n.carry_on_weight_kg===e.carry_on_weight_kg&&n.carry_on_dimensions_cm===e.carry_on_dimensions_cm&&n.checked_qty===e.checked_qty&&n.checked_weight_kg===e.checked_weight_kg):t.every(n=>!n)}fallbackText(){return`Baggage allowance:
+${this.fallbackLines().join(`
+`)}`}fallbackHtml(){return"<br><br><strong>Baggage allowance:</strong>"+this.fallbackLines().map(a=>`<br>${a}`).join("")}fallbackLines(){return["Carry-on bag: included","Checked baggage: please check with airline"]}static \u0275fac=function(e){return new(e||r)};static \u0275prov=o({token:r,factory:r.\u0275fac,providedIn:"root"})};export{c as a};
